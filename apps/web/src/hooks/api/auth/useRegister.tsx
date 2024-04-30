@@ -1,6 +1,7 @@
 'use client';
 import { axiosInsance } from '@/lib/axios';
 import { User } from '@/types/user.types';
+import { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 
 interface RegisterArgs extends Omit<User, 'id'> {
@@ -15,7 +16,9 @@ const useRegister = () => {
 
       router.push('/login');
     } catch (error) {
-      console.log(error);
+      if (error instanceof AxiosError) {
+        alert(JSON.stringify(error.response));
+      }
     }
   };
   return { register };
