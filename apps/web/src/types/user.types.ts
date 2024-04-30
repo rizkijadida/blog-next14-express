@@ -1,5 +1,5 @@
-export interface UserState {
-    id: number;
-    email: string;
-    fullName: string;
+export interface User {
+  id: number;
+  fullName: string;
+  email: string;
 }
