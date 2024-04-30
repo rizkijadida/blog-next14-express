@@ -1,7 +1,7 @@
 'use client';
 import { axiosInsance } from '@/lib/axios';
 import { User } from '@/types/user.types';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 interface RegisterArgs extends Omit<User, 'id'> {
   password: string;

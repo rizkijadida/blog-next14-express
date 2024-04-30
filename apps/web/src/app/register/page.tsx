@@ -7,11 +7,11 @@ import {
   CardContent,
   CardFooter,
   CardHeader,
-  CardTitle
+  CardTitle,
 } from '@/components/ui/card';
 import useRegister from '@/hooks/api/auth/useRegister';
 import { useFormik } from 'formik';
-import { RegisterValidationSchema } from './validationSchema';
+import { validationSchema } from './validationSchema';
 
 const Register: React.FC = () => {
   const { register } = useRegister();
@@ -21,7 +21,7 @@ const Register: React.FC = () => {
       email: '',
       password: '',
     },
-    validationSchema: RegisterValidationSchema,
+    validationSchema,
     onSubmit: (values) => {
       register(values);
     },
@@ -47,7 +47,7 @@ const Register: React.FC = () => {
                   value={formik.values.fullName}
                   error={formik.errors.password}
                   isError={
-                    !!formik.touched.password && !!formik.errors.password
+                    !!formik.touched.fullName && !!formik.errors.fullName
                   }
                   handleChange={formik.handleChange}
                   handleBlur={formik.handleBlur}
@@ -60,16 +60,14 @@ const Register: React.FC = () => {
                   placeholder="Email"
                   value={formik.values.email}
                   error={formik.errors.email}
-                  isError={
-                    !!formik.touched.password && !!formik.errors.password
-                  }
+                  isError={!!formik.touched.email && !!formik.errors.email}
                   handleChange={formik.handleChange}
                   handleBlur={formik.handleBlur}
                 />
 
                 <FormInput
                   name="password"
-                  type="text"
+                  type="password"
                   label="password"
                   placeholder="password"
                   value={formik.values.password}
