@@ -1,4 +1,5 @@
 import { AuthController } from '@/controllers/auth.controller';
+import { verifyToken } from '@/lib/jwt';
 import { Router } from 'express';
 
 export class AuthRouter {
@@ -16,7 +17,17 @@ export class AuthRouter {
     this.router.post('/login', this.authController.loginController);
     this.router.post(
       '/forgot-password',
-      this.authController.fotgotPasswordController,
+      this.authController.forgotPasswordController,
+    );
+    this.router.patch(
+      '/reset-password',
+      verifyToken,
+      this.authController.resetPasswrodController,
+    );
+    this.router.get(
+      '/keep-login',
+      verifyToken,
+      this.authController.keepLoginController,
     );
   }
 
