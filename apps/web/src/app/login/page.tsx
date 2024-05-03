@@ -12,8 +12,10 @@ import {
 import { useFormik } from 'formik';
 import { validationSchema } from './validationShema';
 import useLogin from '@/hooks/api/auth/useLogin';
+import { useRouter } from 'next/navigation';
 
 const Login = () => {
+  const router = useRouter();
   const { login } = useLogin();
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
     useFormik({
@@ -63,11 +65,13 @@ const Login = () => {
                   handleChange={handleChange}
                   handleBlur={handleBlur}
                 />
-
-                <Button type="submit" className=" mt-6 w-full text-white">
-                  Login
-                </Button>
+                <p className="cursor-pointer text-end text-xs" onClick={() => router.push('/forgot-password')}>
+                  Forgot Password?
+                </p>
               </div>
+              <Button type="submit" className=" mt-6 w-full text-white">
+                Login
+              </Button>
             </form>
           </CardContent>
           <CardFooter className="flex justify-end">
