@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { logoutAction } from '@/redux/slices/userSclice';
 import { useRouter } from 'next/navigation';
 
-
 export const Navbar = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -25,7 +24,7 @@ export const Navbar = () => {
             <div className="flex items-center gap-8">
               <h3 onClick={() => router.push('/')}>Home</h3>
               <h3 onClick={() => router.push('/write')}>Write</h3>
-              <h3 onClick={() => router.push('/profie')}>Profile</h3>
+              <h3 onClick={() => router.push('/profile')}>Profile</h3>
               <h3 onClick={logout}>Logout</h3>
             </div>
           ) : (
