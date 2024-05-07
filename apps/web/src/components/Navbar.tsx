@@ -4,7 +4,6 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { logoutAction } from '@/redux/slices/userSclice';
 import { useRouter } from 'next/navigation';
 
-
 export const Navbar = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
