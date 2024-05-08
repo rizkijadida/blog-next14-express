@@ -48,7 +48,6 @@ export class AuthController {
     try {
       const userId = Number(req.body.user.id);
    
-
       const result = await KeepLoginService(userId);
 
       res.status(200).send(result);
@@ -65,7 +64,6 @@ export class AuthController {
     try {
       const userId = Number(req.body.user.id);
       
-
       const result = await KeepLoginService(userId);
 
       res.status(200).send(result);
